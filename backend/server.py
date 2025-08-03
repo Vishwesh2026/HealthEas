@@ -368,7 +368,17 @@ async def book_appointment(
     return {
         "appointment_id": appointment_id,
         "message": "Appointment booked successfully",
-        "appointment": appointment_doc
+        "appointment": {
+            "appointment_id": appointment_id,
+            "doctor_id": appointment.doctor_id,
+            "patient_id": appointment.patient_id,
+            "date": appointment.date,
+            "time": appointment.time,
+            "type": appointment.type,
+            "notes": appointment.notes,
+            "status": "scheduled",
+            "created_at": appointment_doc["created_at"].isoformat()
+        }
     }
 
 @app.get("/api/appointments")
