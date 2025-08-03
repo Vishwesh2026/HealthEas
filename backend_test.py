@@ -462,8 +462,11 @@ class HealthEaseAPITester:
         headers = {"X-Session-ID": self.session_id}
         
         try:
+            # Use the correct user ID from the test session
+            user_id = "03d53cea-ce7c-4086-8a33-c128e3f3fdcc"  # Use the actual test user ID
+            
             sos_data = {
-                "patient_id": self.user_data["user_id"] if self.user_data else "test_user_123",
+                "patient_id": user_id,
                 "location": {
                     "lat": 40.7128,
                     "lng": -74.0060,
