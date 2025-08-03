@@ -322,9 +322,12 @@ class HealthEaseAPITester:
     def test_book_appointment(self, headers, doctor_id):
         """Test booking an appointment"""
         try:
+            # Get the correct user ID from the test session
+            user_id = "03d53cea-ce7c-4086-8a33-c128e3f3fdcc"  # Use the actual test user ID
+            
             appointment_data = {
                 "doctor_id": doctor_id,
-                "patient_id": self.user_data["user_id"] if self.user_data else "test_user_123",
+                "patient_id": user_id,
                 "date": "2025-01-20",
                 "time": "10:00",
                 "type": "online",
